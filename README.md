@@ -5,6 +5,9 @@ A lab to practice building object literals.
 ### Author: Katy Roffe
 
 ### Links and Resources
+Addesses generated using: https://www.coolgenerator.com/address-generator
+https://www.informatica.com/products/data-quality/data-as-a-service/address-verification/address-formats.html
+
 
 
 ### Reflections and Comments
