@@ -1,282 +1,161 @@
 'use strict'
-// console.log('do re me fa so la ti do');
-
-// to do :: make better notes
-// better yet, create new repo to house all these demos and add notes on every line to put in plain english what it does
-// drink more water
-// sleep better
-// cry less
-
-// added prototypey and tabley things per demo follow along. read through again to get a better understanding of the lines and figure out what is out of order. after nap. 
-
-const locationsDiv = document.getElementById('location');
+// console.log ('do re me fa so la ti do');
 
 
-//hours of operations
-const hoursOfOperation = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+// this - keyword referring to the "owner" of the method; 
+// push - adds a new item to an array
+// Math.floor() rounds down to the nearest integer
+// Math.random() returns a random number between 0 and 1
+
+// step 1 - establish the area on the appropriate page (in this case, Sales) where the data should appear. 
+
+const locationsDiv = document.getElementById('locations');
+// locationsDiv refers to the <div id="locations"> set up on the sales page. 
 
 
-function Location(location, minCust, maxCust, avgSalePerCust) {
-  this.locationVal = location;
-  this.minCustVal = minCust;
-  this.macCustVal = maxCust;
-  this.avgSalePerCustVal = avgSalePerCust;
-  this.hrlySalesArrayVal = []; 
+// step 2 - establish the hours of operations. make this an array. 
 
- Location.locationsArray.push(this); // this pushes new locations to the list, "global list" 
-}
-Location.prototype.randomNumCustPerHour = function() { // individual items of the list
-  return Math.floor(Math.random() * (this.maxCust - this.minCust) + this.minCust);
- } 
+const dailyOpsHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
- Location.prototype.fillHrlySalesArray = function() {
-   for (let i=0; i < hoursOfOperation.length; i++) {
-     let salesPerHour = this.randomNumCustPerHour() * this.avgSalesPerCust;
-     this.hrlySalesArary.push(math.ceil(salesPerHour));
-   }
- }
-
-//pretty certain about these
-new Store('Seattle', 23, 65, 6.3)
-new Store('Tokyo', 3, 24, 1.2)
-new Store('Dubai', 11, 38, 3.7)
-new Store('Paris', 20, 38, 2.3)
-new Store('Lima', 2, 16, 4.6)
-
-console.log(Store.randomNumCustPerHour)
+// step 3 - set up an object for each location
 
 
-// adds data to each stores hrlysalesArray
-function fillHrlySalesArrayAllLocations() {
-  for (let i = 0; i < Location.renderAllLocations.length; i++) {
-    const currentLocation = Location.allLocations[i];
-    currentLocation.fillHrlySalesArray();
+// seattle
+const seattle = {
+  name: 'Seattle',
+  minCust: 23,
+  maxCust: 65,
+  avgSalesPerCust: 6.3,
+  hrlySalesArray: [],
+  // this array will be filled with a total for every daily operation hour. it is found by multiplying a random number of customers (randNumOfCust) by the average sales per customer (avgSalesPerCust)
+
+  randNumOfCust: function() {
+    return Math.floor(Math.random() * (this.maxCust - this.minCust) + this.minCust);
+  },
+  fillhrlySalesArray: function() {
+    for (let i = 0; i < dailyOpsHours.length; i++) {
+      let salesPerHour = this.randNumOfCust() * this.avgSalesPerCust;
+      this.hrlySalesArray.push(Math.ceil(salesPerHour));
+      //this loops through the dailyOpsHours array to create a hrlySalesArray 
+    }
   }
 }
 
-// //seattle
-// const seattle = {
-//   location: 'Seattle',
-//   minCust: 23,
-//   maxCust: 65,
-//   avgSalePerCust: 6.3,
-//   hrlySalesArray: [],
-  
-//   randomNumCustPerHour: function() {
-//     return Math.floor(Math.random() * (this.maxCust - this.minCust) + this.minCust);
-//   },
-//   fillHrlySalesArray: function() {
-//     for (let i = 0; i < hoursOfOperation.length; i++) {
-//       let salesPerHour = this.randomNumCustPerHour() * this.avgSalePerCust;
-//       this.hrlySalesArray.push(Math.ceil(this.avgSalePerCust));
-//     }
-//   }
-// }
-  
-// //tokyo
-// const tokyo = { 
-//   location: "Tokyo",
-//   minCust: 3,
-//   maxCust: 24,
-//   avgSalePerCust: 1.2,
-//   hrlySalesArary: [],
+// tokyo
+const tokyo = {
+  name: 'Tokyo',
+  minCust: 3,
+  maxCust: 24,
+  avgSalesPerCust: 1.2,
+  hrlySalesArray: [],
 
-//   randomNumCustPerHour: function () {
-//     return Math.floor(Math.random() * (this.maxCust - this.minCust) + this.minCust);
-//   },
-//   fillHrlySalesArray: function () {
-//     for (let i=0; i < hoursOfOperation.length; i++) {
-//       let salesPerHour = this.randomNumCustPerHour() * this. avgSalePerCust;
-//       this.hrlySalesArray.push(Math.ceil(salesPerHour));
-//     }
-//   }
-// }
+  randNumOfCust: function() {
+    return Math.floor(Math.random() * (this.maxCust - this.minCust) + this.minCust);
+  },
+  fillhrlySalesArray: function() {
+    for (let i = 0; i < dailyOpsHours.length; i++) {
+      let salesPerHour = this.randNumOfCust() * this.avgSalesPerCust;
+      this.hrlySalesArray.push(Math.ceil(salesPerHour));
+    }
+  }
+}
 
-// //dubai
-// const dubai = {
-//   location: "Dubai",
-//   minCust: 11,
-//   maxCust: 38,
-//   avgSalePerCust: 3.7,
-//   hrlySalesArray: [],
+// dubai
+const dubai = {
+  name: 'Dubai',
+  minCust: 11,
+  maxCust: 38,
+  avgSalesPerCust: 3.7,
+  hrlySalesArray: [],
 
-//   randomNumCustPerHour: function () {
-//     return Math.floor(Math.random() * (this.maxCust - this.minCust) + this.minCust);
-//   },
-//   fillHrlySalesArray: function () {
-//     for (let i=0; i < hoursOfOperation.length; i++) {
-//       let salesPerHour = this.randomNumCustPerHour() * this.avgSalePerCust;
-//       this.hrlySalesArray.push(Math.ceil(salesPerHour));
-//     }
-//   }
-// }
+  randNumOfCust: function() {
+    return Math.floor(Math.random() * (this.maxCust - this.minCust) + this.minCust);
+  },
+  fillhrlySalesArray: function() {
+    for (let i = 0; i < dailyOpsHours.length; i++) {
+      let salesPerHour = this.randNumOfCust() * this.avgSalesPerCust;
+      this.hrlySalesArray.push(Math.ceil(salesPerHour));
+    }
+  }
+}
 
-// //paris
-// const paris = {
-//   location: "Paris",
-//   minCust: 20,
-//   maxCust: 38,
-//   avgSalePerCust: 2.3,
-//   hrlySalesArray: [],
+// paris
+const paris = {
+  name: 'Paris',
+  minCust: 20,
+  maxCust: 38,
+  avgSalesPerCust: 2.3,
+  hrlySalesArray: [],
 
-//   randomNumCustPerHour: function () {
-//     return Math.floor(Math.random() * (this.maxCust - this.minCust) + this.minCust);
-//   },
-//   fillHrlySalesArray: function () {
-//     for (let i = 0; i < hoursOfOperation.length; i++) {
-//       let salesPerHour = this.randomNumCustPerHour() * this.avgSalePerCust;
-//       this.hrlySalesArray.push(Math.ceil(salesPerHour));
-//     }
-//   }
-// }
+  randNumOfCust: function() {
+    return Math.floor(Math.random() * (this.maxCust - this.minCust) + this.minCust);
+  },
+  fillhrlySalesArray: function() {
+    for (let i = 0; i < dailyOpsHours.length; i++) {
+      let salesPerHour = this.randNumOfCust() * this.avgSalesPerCust;
+      this.hrlySalesArray.push(Math.ceil(salesPerHour));
+    }
+  }
+}
 
-// //lima
-// const lima = { 
-//   location: "Lima",
-//   minCust: 20,
-//   maxCust: 38,
-//   avgSalePerCust: 2.3,
-//   hrlySalesArary: [],
+// lima
+const lima = {
+  name: 'Lima',
+  minCust: 2,
+  maxCust: 16,
+  avgSalesPerCust: 4.6,
+  hrlySalesArray: [],
 
-//   randomNumCustPerHour: function () {
-//     return Math.floor(Math.random () * (this.maxCust - this.minCust) + this.minCust);
-//   },
-//   fillHrlySalesArray: function () {
-//     for (let i = 0; i < hoursOfOperation.length; i++) {
-//     let salesPerHour = this.randomNumCustPerHour() * this.avgSalesPerCust;
-//     this.hrlySalesArary.push(Math.ceil(salesPerHour));
-//     }
-//   }
-// }
+  randNumOfCust: function() {
+    return Math.floor(Math.random() * (this.maxCust - this.minCust) + this.minCust);
+  },
+  fillhrlySalesArray: function() {
+    for (let i = 0; i < dailyOpsHours.length; i++) {
+      let salesPerHour = this.randNumOfCust() * this.avgSalesPerCust;
+      this.hrlySalesArray.push(Math.ceil(salesPerHour));
+    }
+  }
+}
 
+// step 4 - set up how to get the data onto the Sales page
 
-function _makeElement(tag, parent, text){
-  const element = document.createElement(tag);
-  parent.appendChild(element);
-  if(text) {
-    element.textContent = text;
+function _makeElement(tag, parent, text) { //this is a Sara-made function specifically to make adding the elements easier
+  const element = document.createElement(tag); // creates an element matching the tag;
+  parent.appendChild(element);  //appends the element to the parent
+  if (text) {
+    element.textContent = text; // if it has text content, then it will add the text content
   }
   return element;
 }
 
+// this sets the paramater of a location --> makes all the elements --> adds the location name to the h3 elment --> makes a ul element --> and fills the ul with an li by looping through the hrlySalesArray and adding text content '6am: XX cookies'
 function renderLocation(location) {
   let total = 0;
   const articleElem = _makeElement('article', locationsDiv, null);
   _makeElement('h3', articleElem, location.name);
   const ulElem = _makeElement('ul', articleElem, null);
-  for (let i = 0; i < hoursOfOperation.length; i++) {
-    const text = `${hoursOfOperation[i]}: ${location.hrlySalesArray[i]} cookies`;
+  for (let i = 0; i < dailyOpsHours.length; i++) {
+    const text = `${dailyOpsHours[i]}: ${location.hrlySalesArray[i]} cookies`;
     total += location.hrlySalesArray[i];
     _makeElement('li', ulElem, text);
   }
-  let totalString = `Total: ${total} cookies`; 
-  _makeElement('li', ulElem, totalString);
+  let totalsString = `Total: ${total} cookies`;
+  _makeElement('li', ulElem, totalsString);
 }
 
-
-
-
+// step 5 - add a locations array based on the name of the objects
 const locationsArray = [seattle, tokyo, dubai, paris, lima];
 
+//step 6 - generate cookie data for each location
+
+// loops through the locationsArray and calls these functions
 function renderAllLocations() {
   for (let i = 0; i < locationsArray.length; i++) {
-    const currentLocation = locationsArray[i]
-    currentLocation.fillHrlySalesArray()
+    const currentLocation = locationsArray[i];
+    currentLocation.fillhrlySalesArray()
     renderLocation(currentLocation);
   }
 }
 
+//calls the function
 renderAllLocations();
-
-
-//code updates per wednesday demo. need to read through a couple more times to understand
-
-//thead = header - make bold
-//tbody - body/contains the data
-//tfoot - footer
-//tr - rows. makes up body
-//td - non-bolded data cells
-// th - bolded data cells
-
-Location.prototype.renderSingleLocation = function (body) {
-  let total = 0;
-  const rowElem = document.createElement('tr');
-  body.appendChild(rowElem); // new rows added to the body
-  const thElem = _makeElement('th', rowElem, this.name); //makes th with city name
-  for (let i = 0; i < hoursOfOperation.length; i++) {
-    let cookiesThisHour = this.hrlySalesArary[i];
-    total += cookiesThisHour;
-    _makeElement('td', rowElem, cookiesThisHour);
-
-    _makeElement('th', rowElem, total);
-
-  }
-}
-
-function renderAllLocations() {
-  let tbodyElem = _makeElement('tbody', locationsTable, null);
-  for (let i = 0; i < Location.allLocations.length i++) {
-    Location.allLocations[i].renderSingleLocation(tbodyElem);
-  }
-}
-
-function renderFooter() {
-  const tfootElem = _makeElement('tfoot', locationsTable, null);
-  const rowElem = _makeElement('tr', tfootElem. null);
-  _makeElement('th', rowElem, 'Hourly Total');
-  let hrlyTotal = 0;
-  let grandTotal = 0;
-  for (let i = 0; i < hoursOfOperation.length; i++) {
-    for (let j = 0; j < location.allLocations.length; j++) {
-      let currentLocation = Location.allLocations[j];
-      hrlyTotal += currentLocation.hrlySalesArary[i]
-    }
-    _makeElement('td', rowElem, hrlytotal);
-    grandTotal += hrlyTotal;
-    hrlyTotal = 0; 
-  }
-  _makeElement('td', tfootElem, grandTotal),
-}
-
-renderAllLocations();
-renderFooter();
-
-// previous icky code - break down what went wrong, where i got confused, figure out how to make it better
-
-// not sure if any of the following is correct or workable...
-// Store.locationArray = [];
-// Store.prototype.cookieSales = function() {
-//   let dailySales = 0;
-//   let hourlySales = [];
-//   for (let i = 0; i < this.hoursOfOperation.length; i++) {
-//     let randomNumCustPerHour = Math.floor(Math.random() * (this.maxCustomer - this.minCustomer) + this.minCustomer);
-//     hourlySales.push(Math.ceil(randomNumberOfCustomers * this.avgSalePerCust)); 
-//     dailySales += (Math.ceil(randomNumberOfCustomers * this.avgSalePerCust));
-//   }
-//   this.salesPerHour = hourlySales;
-// }
-
-// function makeTable() {
-//   let body = document.getElementById('locations');
-//   let tableElem = document.createElement('table');
-//   let tableBody = document.createElement('tbody');
-//   for(let i=0; i< Location.appendChild.locationsArray.length; i++) {
-//     let currentLocation = Location.locationArray[i];
-//     let rowElem = document.createElement('tr');
-//     tableBody.appendChild(rowElem);
-//     let tdElem = document.createElement('td');
-//     let cityCell = currentLocation.location;
-//     tdElem.textContent = cityCell;
-//     rowElem.appendChild(tdElem);
-//     for(let j = 0; j < currentLocation.hoursOfOperation.length; j++) {
-//       let cellElem = document.createElement('td');
-//       cellElem.textContent = currentLocation.salesPerHour[j];
-//       rowElem.appendChild(cellElem);
-//     }
-//     tableBody.appendChild(rowElem);
-//   }
-//   tableElem.appendChild(tableBody);
-//   body.appendChild(tableElem);
-//   tableElem.setAttribute("border", "3");
-// }
-// makeTable();
