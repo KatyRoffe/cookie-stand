@@ -13,12 +13,27 @@
     </header>
     
     <main>
-      <div id="location">
-      </div>
-            <!-- i'll delete the div id once i get the table working -->
-      
       <table id="locations">
-      </table>  
+      </table> 
+      <form id="addStoreForm">
+        <fieldset>
+          <legend>Add New Store</legend>
+          <label>Locations
+            <input name="locations" type="text" required/>
+          </label>
+          <label>Max. Customers
+            <input name="maxCust" type="number" min="0" step="1" required/>
+          </label>
+          <label>Min. Customers
+            <input name="minCust" type="number" min="0" step="1" required/>
+          </label>
+          <label>Avg Cookie Sales
+            <input name="avgSalesPerCust" type="number" min="0" step="1" required/>
+          </label>
+        </fieldset>
+      </form>
+        <button type="submit">Submit</button>
+
     </main>
    
     <footer>

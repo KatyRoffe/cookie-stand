@@ -10,11 +10,27 @@
   <body>
     <header>
       <a href="https://katyroffe.github.io/cookie-stand/sales.html">Sales Page</a>
-      <img src="img/salmon.png">
+      <img src="img/salmon.png" id="logo">
     </header>
     <main>
-      <table id="locations">
-      </table>
+      <form id="addStoreForm">
+        <fieldset>
+          <legend>Add New Store</legend>
+          <label>Locations
+            <input name="locations" type="text" required/>
+          </label>
+          <label>Max. Customers
+            <input name="maxCust" type="number" min="0" step="1" required/>
+          </label>
+          <label>Min. Customers
+            <input name="minCust" type="number" min="0" step="1" required/>
+          </label>
+          <label>Avg Cookie Sales
+            <input name="avgSalesPerCust" type="number" min="0" step="1" required/>
+          </label>
+        </fieldset>
+      </form>
+        <button type="submit">Submit</button>
     </main>
     <footer>
       FORMAT THESE BETTER :: probably put them in the footer
