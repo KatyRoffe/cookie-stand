@@ -5,3 +5,20 @@ background color for default page
 background color for elements
 be simple, clear, and consistent
 be thoughtful about the overall layout*/
+
+
+header {
+  background-color: #c77f5a;
+}
+
+header img {
+  height: 100px;
+}
+
+main {
+  background-color: #a8a88f
+}
+
+footer {
+  background-color: #c77f5a;
+}
