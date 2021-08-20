@@ -238,3 +238,5 @@ function makeTheFooter() {
 
 renderAllLocations();
 makeTheFooter();
+
+formElem.addEventListener('submit', handleSumbit);
