@@ -12,17 +12,14 @@
 // we are converting our objects to constructors
 // we are developing a table where the data from the constructors should populate
 
-
-// step 1 - establish the area on the approprite page (in this case Sales) where the data should appear
-
 const locationsTable = document.getElementById('locations');
+
+const formElem = document.getElementById('addLocationForm')
 
 const dailyOpsHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
-// step 2 - create the function that will be the template for the data
-
-function Location(name, minCust, maxCust, avgSalesPerCust) {
-  this.name = name;
+function Location(city, minCust, maxCust, avgSalesPerCust) {
+  this.city = city;
   this.minCust = minCust;
   this.maxCust = maxCust;
   this.avgSalesPerCust = avgSalesPerCust;
@@ -66,7 +63,7 @@ fillhrlySalesArrayAllLocations();
 //all this commented out code is held in the method/function Location and the "new Location" lines
 // // seattle
 // const seattle = {
-//   name: 'Seattle',
+//   city: 'Seattle',
 //   minCust: 23,
 //   maxCust: 65,
 //   avgSalesPerCust: 6.3,
@@ -87,7 +84,7 @@ fillhrlySalesArrayAllLocations();
 
 // // tokyo
 // const tokyo = {
-//   name: 'Tokyo',
+//   city: 'Tokyo',
 //   minCust: 3,
 //   maxCust: 24,
 //   avgSalesPerCust: 1.2,
@@ -106,7 +103,7 @@ fillhrlySalesArrayAllLocations();
 
 // // dubai
 // const dubai = {
-//   name: 'Dubai',
+//   city: 'Dubai',
 //   minCust: 11,
 //   maxCust: 38,
 //   avgSalesPerCust: 3.7,
@@ -125,7 +122,7 @@ fillhrlySalesArrayAllLocations();
 
 // // paris
 // const paris = {
-//   name: 'Paris',
+//   city: 'Paris',
 //   minCust: 20,
 //   maxCust: 38,
 //   avgSalesPerCust: 2.3,
@@ -144,7 +141,7 @@ fillhrlySalesArrayAllLocations();
 
 // // lima
 // const lima = {
-//   name: 'Lima',
+//   city: 'Lima',
 //   minCust: 2,
 //   maxCust: 16,
 //   avgSalesPerCust: 4.6,
@@ -194,7 +191,7 @@ Location.prototype.renderSingleLocation = function(body) {
   let total = 0;
   const rowElement = document.createElement('tr');
   body.appendChild(rowElement);
-  const thElem = _makeElement('th', rowElement, this.name);
+  const thElem = _makeElement('th', rowElement, this.city);
   for (let i = 0; i < dailyOpsHours.length; i++) {
     let cookiesThisHour = this.hrlySalesArray[i];
     total += cookiesThisHour;
@@ -211,6 +208,16 @@ function renderAllLocations() {
   for (let i = 0; i < Location.allLocations.length; i++) {
     Location.allLocations[i].renderSingleLocation(tbodyElement);
   }
+}
+
+function makeTheHeader () {
+  const tHeaderElement = _makeElement('thead', locationsTable, null);
+  const rowElement = _makeElement('tr', tHeaderElement, null);
+  _makeElement('th', rowElement, 'Hours');
+  for (let i = 0; i < dailyOpsHours.length; i++) {
+    _makeElement('td', rowElement, dailyOpsHours[i]);
+  }
+  _makeElement('th', rowElement, "Totals")
 }
 
 // a function to make a tfoot & append on table in a row
@@ -238,5 +245,20 @@ function makeTheFooter() {
 
 renderAllLocations();
 makeTheFooter();
+
+function handleSubmit(event) {
+  event.preventDefault();
+  // console.log(event);
+  // console.log(event.target.name.value);
+  const city = event.target.location.value;
+  const minCust = event.target.minCust.value;
+  const maxCust = event.target.maxCust.value;
+  const avgSalesPerCust = event.target.avgSalesPerCust.value;
+
+  let newLocation = new Location(city, minCust, maxCust, avgSalesPerCust);
+  // console.log(newLocation);
+  newLocation.render();
+  event.target.reset();
+}
 
 formElem.addEventListener('submit', handleSumbit);
