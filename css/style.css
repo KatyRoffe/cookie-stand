@@ -1,24 +1,150 @@
-/* <need a standard sans-serif web font for data 
-need a specificed standarard serif web font for text
-need three text colors (one for data, text, and google font
-background color for default page
-background color for elements
-be simple, clear, and consistent
-be thoughtful about the overall layout*/
 
+/* table, th, td {
+  border: 2px, solid black;
+  display: flex;
+  align-items: center;
+}  */
+
+body {
+  background-color: #C2C5AA;
+}
 
 header {
-  background-color: #c77f5a;
+  background-color: #656D4A;
+  height: 110px;
+  margin-bottom:50px
 }
 
-header img {
-  height: 100px;
+ul {
+  display: flex;
+  justify-content: space-evenly;
+  padding-top: 25px;
 }
 
-main {
-  background-color: #a8a88f
+a {
+  color: #582F0E;
+  text-decoration: none;
+  font-size: 25px;
+  font-family: 'Oswald', sans-serif;
+}
+
+a:hover {
+  transition: 750ms;
+  color: #c88f5a;
+}
+
+h1 {
+  font-family: 'Special Elite', cursive;
+  font-size: 64pt;
+  margin-left: -50px;
+  color: #582F0E;
+}
+
+#logo {
+  width:125px;
+  float: left;
+  margin-left: 25px;
+  padding-top: 25px;
+}
+
+
+#family {
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
+  padding-left: 50px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 32px;
+  margin-bottom: 50px;
+  color: #333D29;
+  
+}
+#family img {
+  border: 5px solid #656D4A;
+  border-radius: 50%;
+  width: 500px;
+  margin-right: 50px;
+}
+
+#menu, #merch, #blog, #recipes {
+  float: left;
+  margin: 50px;
+  padding: 15px;
+  background-color: #B6AD90;
+  width: 220px;
+  height: 250px;
+  box-shadow: 5px 5px;
+  text-align: center;
+}
+
+h2 {
+ font-family: 'Special Elite', cursive;
+ font-size: 16pt;
+  color: #582F0E;
+}
+
+#menu img {
+  width: 200px;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+#merch img {
+  width: 200px;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+#blog img {
+  width: 200px;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+#recipes img {
+  width: 200px;
+  padding: 10px;
+  border-radius: 50%;
 }
 
 footer {
-  background-color: #c77f5a;
+  background-color: #656D4A;
+  margin-top: 30px;
+  display: flex;
+  flex-direction:row;
+  justify-content: space-around;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 150px;
+  color:#322b19
+}
+
+.wwlocations {
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  margin-top: 25px;
+}
+
+.storeinfo {
+  display: block;
+  margin-left: 15px;
+  margin-right: 15px
+}
+
+h4 {
+ font-weight: bold;
+ font-size: 14pt;
+}
+
+.address {
+  font-size: 12pt;
+} 
+
+footer img {
+  height: 100px;
+  margin-top: 25px;
+  border-radius: 25%;
+  border: 2px solid #414833
 }
