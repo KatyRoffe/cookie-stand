@@ -1,75 +1,114 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="css/reset.css" type="text/css" rel="stylsheet">
-    <link href="css/style.css" type="text/css" rel="stylesheet">
-    <!-- find custom google font for highlights-->
-    <!-- be thoughtful about the layout -->
-    <!-- include typical home page busines stuff - think about what's important to an end user -->
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&family=Special+Elite&display=swap" rel="stylesheet">
   </head>
+
   <body>
+
     <header>
-      <a href="https://katyroffe.github.io/cookie-stand/sales.html">Sales Page</a>
-      <img src="img/salmon.png" id="logo">
+      <nav>
+        <img src="./img/salmon.png" id="logo" alt="salmon logo">
+        <ul>
+          <h1>Pat's Cookie Stand</h1>
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./merch.html">Merch</a></li>
+          <li><a href="./about.html">About</a></li>
+          <li><a href="./sales.html">Sales Data</a></li>
+        </ul>
+      </nav>
     </header>
+
     <main>
-      <form id="addStoreForm">
-        <fieldset>
-          <legend>Add New Store</legend>
-          <label>Locations
-            <input name="locations" type="text" required/>
-          </label>
-          <label>Max. Customers
-            <input name="maxCust" type="number" min="0" step="1" required/>
-          </label>
-          <label>Min. Customers
-            <input name="minCust" type="number" min="0" step="1" required/>
-          </label>
-          <label>Avg Cookie Sales
-            <input name="avgSalesPerCust" type="number" min="0" step="1" required/>
-          </label>
-        </fieldset>
-      </form>
-        <button type="submit">Submit</button>
+      <div id="family">
+        <img src="./img/family.jpg" alt="family picture">
+        <p>Family run since 2021<br>
+        Open Monday through Friday<br>
+        6:00AM to 8:00PM<br>
+        email: info@patscookiestand.com</p>
+        </div>
+
+      <section id="menu">
+        <img src="./img/frosted-cookie.jpg" alt="a frosted cookie">
+        <h2>View Menu</h2>
+      </section>
+
+      <section id="merch">
+        <img src="./img/shirt.jpg" alt="a fish shirt">
+        <h2>Visit Merch</h2>
+      </section>
+
+      <section id="blog">
+        <img src="./img/fish.jpg" alt="stuffed fish toys">
+        <h2>View Blog</h2>
+      </section>
+    
+      <section id="recipes">
+        <img src="./img/cutter.jpeg" alt="fish shaped cookie cutter">
+        <h2>Fun Recipes</h2>
+      </section>
+    
     </main>
+
     <footer>
-      FORMAT THESE BETTER :: probably put them in the footer
+     <img src="./img/chinook.jpg" id="chinook" alt="chinook salmon image">
+      <div class="wwlocations">
+        <div class="storeinfo">
+          <h4 class="city">Seattle</h4>
+         <p class="address">3392 Salmon Court<br>
+          Seattle, (WA), 98101<br>
+          Phone: 206-867-5309<br>
+          M-F: 6:00AM - 8:00PM</p>
+        </div>
       <br><br>
-      USA
-      3392 Salmon Court
-      Seattle, (WA), 98101
-      206-867-5309
-      Open 6:00AM - 7:00PM
-      info@patcantcook.com
+
+      <div class="storeinfo">
+        <h4 class="city">Tokyo</h4>
+          <p class="address">
+            435-1028, Nishishinjuku Shinjuku<br>
+            Enuesubiru(21-kai), Shinjuku-ku, Tokyo<br>
+            Phone: +8199-339-1296<br>
+            M-F: 6:00AM - 8:00PM</p>
+      </div>
       <br><br>
-      Tokyo
-      435-1028, Nishishinjuku Shinjuku
-      Enuesubiru(21-kai), Shinjuku-ku, Tokyo
-      +8199-339-1296
-      Open 6:00AM - 7:00PM
+
+      <div class="storeinfo">
+        <h4 class="city">Dubai</h4>
+           <p class="address">
+            Park Place Tower, Suite 1403<br>
+            Sheikh Zayed Road, PO Box 3614<br>
+            Dubai, United Arab Emirates<br>
+            Phone: +971-3556785<br>
+            M-F: 6:00AM - 8:00PM</p>
+      </div>
       <br><br>
-      Dubai
-      Park Place Tower, Suite 1403
-      Sheikh Zayed Road, PO Box 3614
-      Dubai, United Arab Emirates
-      +971-3556785
-      Open 6:00AM - 7:00PM
+
+      <div class="storeinfo">
+        <h4 class="city">Paris</h4>
+          <p class="address">
+            50 Faubourg Saint Honoré<br>
+            Paris, Île-de-France(IL), 75020<br>
+            Phone: 01.38.35.29.52<br>
+            M-F: 6:00AM - 8:00PM</p>
+      </div>
       <br><br>
-      Paris
-      50 Faubourg Saint Honoré
-      Paris, Île-de-France(IL), 75020
-      01.38.35.29.52
-      Open 6:00AM - 7:00PM
-      <br><br>
-      Lima
-      Pasaje Los Pinos 118
-      Miraflores
-      Lima
-      Peru
-      +51 1 917 567 412
-      Open 6:00AM - 7:00PM
+      
+      <div class="storeinfo">
+        <h4 class="city">Lima</h4>
+          <p class="address">
+            Pasaje Los Pinos 118<br>
+            Miraflores, Lima, Peru<br>
+            Phone: +51 1 917 567 412<br>
+            M-F: 6:00AM - 8:00PM</p>
+      </div>
+    </div>
     </footer>
-    <script src="js/app.js"></script>
-    <!-- delete this script element once sales page is better established and we have better for the html page-->
   </body>
 </html>
