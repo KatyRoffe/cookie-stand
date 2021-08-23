@@ -1,49 +1,60 @@
 <!DOCTYPE html>
 <html>
-
   <head>
-    <link href="css/reset.css" type="text/css" rel="stylsheet">
-    <link href="css/style.css" type="text/css" rel="stylesheet">
+    <link href="./css/reset.css" type="text/css" rel="stylesheet"/>
+    <link href="./css/style.css" type="text/css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&family=Special+Elite&display=swap" rel="stylesheet">
   </head>
 
   <body>
 
     <header>
-      <a href="https://katyroffe.github.io/cookie-stand/">Home Page</a>
+      <nav>
+        <img src="./img/salmon.png" id="logo" alt="salmon logo">
+        <ul>
+          <h1>Pat's Cookie Stand</h1>
+          <li><a href="./index.html">Home</a></li>
+          <li><a href="./merch.html">Merch</a></li>
+          <li><a href="./about.html">About</a></li>
+          <li><a href="https://katyroffe.github.io/cookie-stand/">Home Page</a></li>
+        </ul>
+      </nav>
     </header>
-    
+
     <main>
-      <table id="locations">
-      </table> 
-      <form id="addStoreForm">
-        <fieldset>
-          <legend>Add New Store</legend>
-          <label>Locations
-            <input name="locations" type="text" required/>
-          </label>
-          <label>Max. Customers
-            <input name="maxCust" type="number" min="0" step="1" required/>
-          </label>
-          <label>Min. Customers
-            <input name="minCust" type="number" min="0" step="1" required/>
-          </label>
-          <label>Avg Cookie Sales
-            <input name="avgSalesPerCust" type="number" min="0" step="1" required/>
-          </label>
-        </fieldset>
-      </form>
-        <button type="submit">Submit</button>
+      <div id="locations">
+        <h2>LOCATIONS AND SALES</h2>
+      </div>
+
+      <section>
+          <form id="addStoreForm">
+            <fieldset>
+              <legend>Add A Store</legend>
+              <label>Store Location
+                <input name="locationName" type="text"/>
+              </label>
+              <label>Minimum Customers per Hour
+                <input name="minCustHour" type="number"/>
+              </label>
+              <label>Maximum Customers per Hour
+                <input name="maxCustHour" type="number"/>
+              </label>
+              <label>Average Cookies per Customer
+                <input name="avgPerCust" type="number"/>
+              </label>
+            </fieldset>
+            <button type="submit">Add New Store</button>
+          </form>
+      </section>
 
     </main>
-   
     <footer>
+      <script src="./js/app.js"></script>
     </footer>
-
-    </main>
-
-    <footer>
-    </footer>
-    
-    <script src="js/app.js"></script>
   </body>
 </html>
