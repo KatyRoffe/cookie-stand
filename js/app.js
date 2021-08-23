@@ -14,7 +14,7 @@
 
 const locationsTable = document.getElementById('locations');
 
-const formElem = document.getElementById('addLocationForm')
+const formElement = document.getElementById('addLocationForm')
 
 const dailyOpsHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
@@ -230,7 +230,7 @@ function makeTheFooter() {
   _makeElement('th', rowElement, 'Hourly Total');
   let hourlyTotal = 0;
   let grandTotal = 0;
-  for (let i = 0; i < dailyOpsHours.length; i++) { // loop through dailyOpsHour (each hour i)
+  for (let i = 0; i < dailyOpsHours.length; i++) { // loop through dailyOpsHours (each hour i)
     for (let j = 0; j < Location.allLocations.length; j++) { 
       let currentLocation = Location.allLocations[j];
       hourlyTotal += currentLocation.hrlySalesArray[i]
@@ -243,22 +243,40 @@ function makeTheFooter() {
   _makeElement('td', rowElement, grandTotal); // looked at every hour
 }
 
-renderAllLocations();
-makeTheFooter();
-
-function handleSubmit(event) {
-  event.preventDefault();
-  // console.log(event);
-  // console.log(event.target.name.value);
-  const city = event.target.location.value;
-  const minCust = event.target.minCust.value;
-  const maxCust = event.target.maxCust.value;
-  const avgSalesPerCust = event.target.avgSalesPerCust.value;
-
-  let newLocation = new Location(city, minCust, maxCust, avgSalesPerCust);
-  // console.log(newLocation);
-  newLocation.render();
-  event.target.reset();
+function makeTheHeader() {
+  const tHeaderElement = _makeElement('thead', locationsTable, null);
+  const rowElement = _makeElement('tr', tHeaderElement, null);
+  _makeElement('th', rowElement, ' ');
+  for (let i = 0; i < dailyOpsHours.length; i++) {
+    let time = dailyOpsHours[i];
+    _makeElement('th', rowElement, time);
+  }
+  _makeElement('th', rowElement, 'Daily Total');
 }
 
-formElem.addEventListener('submit', handleSumbit);
+//THIS FORM ISN'T WORKING AND I'M GOING TO SCREAM
+
+// function handleSubmit(event) {
+//   event.preventDefault();
+//   console.log(event);
+//   console.log(event.target.name.value)
+//   const location = event.target.location.value;
+//   const minCust = event.target.minCust.value;
+//   const maxCust = event.target.maxCust.value;
+//   const avgSalesPerCust = event.target.avgSalesPerCust.value;
+//   this.hrlySalesArray = []; 
+//   let newLocation = new Location(location, minCust, maxCust, avgSalesPerCust, this.hrlySalesArray);
+//   fillhrlySalesArrayAllLocations();
+//   tableElement.innerHTML = '';
+//   makeTheFooter();
+//   makeTheHeader();
+//   event.target.reset();
+// }
+
+// formElement.addEventListener('submit', handleSubmit);
+
+
+
+renderAllLocations();
+makeTheFooter();
+makeTheHeader();
